@@ -27,7 +27,12 @@ Features :
 * Search & filter books
 * Manage library users / members
 * Borrow book with limit
-* Notification to users ( due date )
 * File management for overdue books
-* Storage space management
 * Return book with feedback
+
+Future Implementations :
+
+* AI-Based Book Recommendation Engine
+* Real-time Chat with Librarian
+* Notification to users ( due date 
+  
