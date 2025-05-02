@@ -26,7 +26,6 @@ Features :
 * User details page
 * Book details page
 * Search & filter books
-* Manage library users / members
 * Borrow book with limit
 * File management for overdue books
 * Return book with feedback
