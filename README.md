@@ -17,7 +17,8 @@ Budget          :	Rs. 0
 
 Total Members   :	1
 
-Features :	
+Features :
+----------
 
 * Add books
 * Register
@@ -31,6 +32,7 @@ Features :
 * Return book with feedback
 
 Future Implementations :
+------------------------
 
 * AI-Based Book Recommendation Engine
 * Real-time Chat with Librarian
