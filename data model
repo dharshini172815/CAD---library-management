@@ -1,0 +1,100 @@
+Register
+---------
+username – String
+password – String
+firstName – String
+lastName – String
+email – String
+dob – String or Date
+mobile – String or Long
+role – String ("member" by default or selected)
+registeredDate – Date (auto-generated)
+
+Login
+------
+username – String
+password – String
+
+Library
+-------
+id – int
+name – String
+incharge – String
+capacity – int
+address – String
+phone – String/long
+wifi – String
+email – String
+openingTime – longtoDateFormat
+closingTime – longtoDateFormat
+
+Book model
+----------
+bookId – Integer (Primary key)
+title – String
+author – String
+publisher – String
+isbn – String (Unique)
+category – String (e.g., Fiction, Science)
+language – String
+totalCopies – Integer
+availableCopies – Integer
+publishedDate – Date
+addedDate – Date
+
+User details page
+------------------
+userId – Integer
+username – String
+firstName – String
+lastName – String
+email – String
+dob – String or Date
+mobile – String or Long
+role – String
+registeredDate – Date
+
+Search/Filter
+-------------
+title
+author
+category
+language
+availability
+
+Borrow model
+------------
+borrowId – int
+userId – int
+bookId – int
+borrowDate – Date
+dueDate – Date
+returnDate – Date (can be null)
+isReturned – boolean
+isOverdue – boolean
+overdueDays – int
+fineAmount – BigDecimal
+
+Overdue file management
+-----------------------
+* Export data from Borrow where isReturned = false and dueDate < today
+* Fields:
+    userId
+    userName
+    bookTitle
+    borrowDate
+    dueDate
+    overdueDays
+    fineAmount
+
+Return feedback model
+---------------------
+feedbackId – Integer 
+borrowId – integer
+userId – integer
+bookId – integer
+rating – Integer (1 to 5)
+comment – String
+submittedDate – Date
+
+
