@@ -1,100 +1,88 @@
-Register
----------
-username – String
-password – String
-firstName – String
-lastName – String
-email – String
-dob – String or Date
-mobile – String or Long
-role – String ("member" by default or selected)
-registeredDate – Date (auto-generated)
+1. Class RegistrationPage
+-------------------------
+    - userID: int
+    - userName: String
+    - email: String
+    - password: String
+    - confirmPassword: String
+    - role: String  // "admin" or "member"
 
-Login
-------
-username – String
-password – String
-
-Library
--------
-id – int
-name – String
-incharge – String
-capacity – int
-address – String
-phone – String/long
-wifi – String
-email – String
-openingTime – longtoDateFormat
-closingTime – longtoDateFormat
-
-Book model
-----------
-bookId – Integer (Primary key)
-title – String
-author – String
-publisher – String
-isbn – String (Unique)
-category – String (e.g., Fiction, Science)
-language – String
-totalCopies – Integer
-availableCopies – Integer
-publishedDate – Date
-addedDate – Date
-
-User details page
+2. Class LoginPage
 ------------------
-userId – Integer
-username – String
-firstName – String
-lastName – String
-email – String
-dob – String or Date
-mobile – String or Long
-role – String
-registeredDate – Date
+    - userName: String
+    - password: String
 
-Search/Filter
+3. Class User
 -------------
-title
-author
-category
-language
-availability
+    - userID: int
+    - name: String
+    - email: String
+    - role: String  // admin or member
+    - borrowedBooks: List<Borrow>  // current active borrows
 
-Borrow model
-------------
-borrowId – int
-userId – int
-bookId – int
-borrowDate – Date
-dueDate – Date
-returnDate – Date (can be null)
-isReturned – boolean
-isOverdue – boolean
-overdueDays – int
-fineAmount – BigDecimal
+4. Class Book
+-------------
+    - bookID: int
+    - title: String
+    - author: String
+    - genre: String
+    - isbn: String
+    - publicationYear: int
+    - totalCopies: int
+    - availableCopies: int
+    - feedbackList: List<Feedback>
 
-Overdue file management
------------------------
-* Export data from Borrow where isReturned = false and dueDate < today
-* Fields:
-    userId
-    userName
-    bookTitle
-    borrowDate
-    dueDate
-    overdueDays
-    fineAmount
-
-Return feedback model
+5. Class SearchFilter
 ---------------------
-feedbackId – Integer 
-borrowId – integer
-userId – integer
-bookId – integer
-rating – Integer (1 to 5)
-comment – String
-submittedDate – Date
+    - keyword: String
+    - authorFilter: String
+    - genreFilter: String
+    - yearFilter: int
 
+6. Class Borrow
+---------------
+    - user: User (class 3)
+    - book: Book (class 4)
+    - borrowDate: String
+    - dueDate: String
+    - returnDate: String
+    - isReturned: boolean
+
+7. Class OverdueFile
+--------------------
+    - borrow: Borrow (class 6)
+    - daysOverdue: int
+    - fineAmount: double
+    - fileCreatedDate: String
+    - isCleared: boolean
+
+8. Class Feedback
+-----------------
+    - user: User (class 3)
+    - book: Book (class 4)
+    - rating: int
+    - comment: String
+    - feedbackDate: String
+
+9. Class LibrarySystem
+----------------------
+    - users: List<User>
+    - books: List<Book>
+    - borrows: List<Borrow>
+    - overdues: List<OverdueFile>
+    - feedbacks: List<Feedback>
+
+
+Feature	                       Classes Used
+-------------------------------------------------------------
+Add books	                   Book, LibrarySystem
+Register	                   RegistrationPage
+Login	                       LoginPage
+User details page	           User, Borrow
+Book details page	           Book, Feedback
+Search & filter books	       SearchFilter, Book
+Borrow book with limit	       Borrow, User, LibrarySystem
+File management for overdue	   OverdueFile, Borrow
+Return book with feedback	   Feedback, Borrow, User, Book
+--------------------------------------------------------------
 
